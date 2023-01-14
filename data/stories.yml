@@ -630,4 +630,37 @@ stories:
   - action: utter_appraisal.thank_you
   - intent: greetings.whatsup
   - action: utter_greetings.whatsup
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greetings.hello
+  - action: utter_greetings.hello
+  - intent: inquire_time
+    entities:
+    - place: amsterdam
+  - action: action_tell_time
+
+- story: interactive_story_1
+  steps:
+  - intent: greetings.hello
+  - action: utter_greetings.hello
+  - intent: where_i_live
+    entities:
+    - place: london
+  - action: action_remember_where
+  - slot_was_set:
+    - location: london
+  - intent: inquire_time_difference
+    entities:
+    - place: amsterdam
+  - action: action_time_difference
+  - intent: inquire_time_difference
+    entities:
+    - place: amsterdam
+  - action: action_time_difference
+  - intent: inquire_time_difference
+    entities:
+    - place: amsterdam
+  - action: action_time_difference
   
