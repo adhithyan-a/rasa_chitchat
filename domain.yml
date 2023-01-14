@@ -87,6 +87,20 @@ intents:
   - confirmation.yes
   - confirmation.cancel
   - confirmation.no
+  - where_i_live
+  - inquire_time_difference
+  - inquire_time
+
+
+entities:
+- place
+slots:
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: place
 
 responses:
   utter_agent.acquaintance:
@@ -533,6 +547,11 @@ responses:
   - text: I see.
   - text: I understand.
   - text: Okay then.
+
+actions:
+- action_remember_where
+- action_tell_time
+- action_time_difference
 
 session_config:
   session_expiration_time: 60
